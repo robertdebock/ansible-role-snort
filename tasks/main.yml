@@ -1,0 +1,38 @@
+---
+# tasks file for snort
+- name: install required software
+  package:
+    name: "{{ snort_required_software }}"
+    state: "{{ snort_package_state }}"
+
+- name: create a symbolic link libdnet.1
+  file:
+    src: /usr/lib64/libdnet.so.1.0.1
+    dest: /usr/lib64/libdnet.1
+    state: link
+
+- name: install software
+  package:
+    name: "{{ snort_packages }}"
+    state: "{{ snort_package_state }}"
+
+- name: install community rules
+  unarchive:
+    src: https://snort.org/downloads/community/community-rules.tar.gz
+    dest: /etc/snort/rules
+    remote_src: yes
+
+#- name: configure software
+#  template:
+#    src: "{{ snort_config_file }}".j2
+#    dest: "{{ snort_config_directory }}"/"{{ snort_config_file }}"
+#  notify:
+#    - restart software
+
+- name: start and enable software
+  service:
+    name: "{{ snort_service }}"
+    state: started
+    enabled: yes
+  when:
+    - ansible_virtualization_type != "docker"

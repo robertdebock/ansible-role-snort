@@ -1,0 +1,50 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: requirements.yml
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: snort-alpine-edge
+    image: alpine:edge
+    command: sh -c "while true ; do sleep 1 ; done"
+  - name: snort-alpine-latest
+    image: alpine:latest
+    command: sh -c "while true ; do sleep 1 ; done"
+  - name: snort-archlinux
+    image: base/archlinux
+  - name: snort-centos-6
+    image: centos:6
+  - name: snort-centos-latest
+    image: centos:latest
+  - name: snort-debian-latest
+    image: debian:latest
+  - name: snort-debian-stable
+    image: debian:stable
+  - name: snort-debian-unstable
+    image: debian:unstable
+  - name: snort-fedora-latest
+    image: fedora:latest
+  - name: snort-fedora-rawhide
+    image: fedora:rawhide
+  - name: snort-opensuse-leap
+    image: opensuse:leap
+  - name: snort-opensuse-tumbleweed
+    image: opensuse:tumbleweed
+  - name: snort-ubuntu-artful
+    image: ubuntu:artful
+  - name: snort-ubuntu-devel
+    image: ubuntu:devel
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+verifier:
+  name: goss
+  lint:
+    name: yamllint
