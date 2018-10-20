@@ -22,13 +22,6 @@
     dest: /etc/snort/rules
     remote_src: yes
 
-#- name: configure software
-#  template:
-#    src: "{{ snort_config_file }}".j2
-#    dest: "{{ snort_config_directory }}"/"{{ snort_config_file }}"
-#  notify:
-#    - restart software
-
 - name: start and enable software
   service:
     name: "{{ snort_service }}"
