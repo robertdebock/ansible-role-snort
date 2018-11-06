@@ -1,9 +1,9 @@
 ---
 - name: Converge
   hosts: all
-  gather_facts: false
-  become: true
+  gather_facts: no
+  become: yes
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: ansible-role-snort
+    - robertdebock.bootstrap
+    - ansible-role-snort
