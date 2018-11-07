@@ -10,10 +10,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: snort-debian
-    box: debian/stretch64
-  - name: snort-fedora
-    box: fedora/28-cloud-base
+  - name: snort-centos
+    box: centos/7
 provisioner:
   name: ansible
   lint:
