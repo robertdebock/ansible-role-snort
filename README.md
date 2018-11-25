@@ -68,23 +68,23 @@ Compatibility
 
 This role has been tested against the following distributions and Ansible version:
 
-|distribution|ansible 2.4|ansible 2.5|ansible 2.6|ansible 2.7|ansible devel|
-|------------|-----------|-----------|-----------|-----------|-------------|
-|alpine-edge*|no|no|no|no|no*|
-|alpine-latest|no|no|no|no|no*|
-|archlinux|no|no|no|no|no*|
-|centos-6|no|no|no|no|no*|
-|centos-latest|yes|yes|yes|yes|yes*|
-|debian-latest|no|no|no|no|no*|
-|debian-stable|no|no|no|no|no*|
-|debian-unstable*|no|no|no|no|no*|
-|fedora-latest|yes|yes|yes|yes|yes*|
-|fedora-rawhide*|yes|yes|yes|yes|yes*|
-|opensuse-leap|no|no|no|no|no*|
-|opensuse-tumbleweed|no|no|no|no|no*|
-|ubuntu-artful|no|no|no|no|no*|
-|ubuntu-devel*|no|no|no|no|no*|
-|ubuntu-latest|no|no|no|no|no*|
+|distribution|ansible 2.6|ansible 2.7|ansible devel|
+|------------|-----------|-----------|-------------|
+|alpine-edge*|no|no|no*|
+|alpine-latest|no|no|no*|
+|archlinux|no|no|no*|
+|centos-6|no|no|no*|
+|centos-latest|yes|yes|yes*|
+|debian-latest|no|no|no*|
+|debian-stable|no|no|no*|
+|debian-unstable*|no|no|no*|
+|fedora-latest|yes|yes|yes*|
+|fedora-rawhide*|yes|yes|yes*|
+|opensuse-leap|no|no|no*|
+|opensuse-tumbleweed|no|no|no*|
+|ubuntu-artful|no|no|no*|
+|ubuntu-devel*|no|no|no*|
+|ubuntu-latest|no|no|no*|
 
 A single star means the build may fail, it's marked as an experimental build.
 
