@@ -4,6 +4,9 @@
   package:
     name: "{{ snort_required_software }}"
     state: "{{ snort_package_state }}"
+  register: snort_install_required_software
+  until: snort_install_required_software
+  retries: 3
 
 - name: create a symbolic link libdnet.1
   file:
@@ -15,6 +18,9 @@
   package:
     name: "{{ snort_packages }}"
     state: "{{ snort_package_state }}"
+  register: snort_install_softwrae
+  until: snort_install_softwrae
+  retries: 3
 
 - name: install community rules
   unarchive:
