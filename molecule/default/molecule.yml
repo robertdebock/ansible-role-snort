@@ -34,8 +34,10 @@ platforms:
     image: opensuse:leap
   - name: snort-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: snort-ubuntu-artful
-    image: ubuntu:artful
+  - name: snort-ubuntu-latest
+    image: ubuntu:latest
+  - name: snort-ubuntu-rolling
+    image: ubuntu:rolling
   - name: snort-ubuntu-devel
     image: ubuntu:devel
   - name: snort-ubuntu-latest
