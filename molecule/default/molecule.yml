@@ -32,8 +32,6 @@ platforms:
     image: fedora:rawhide
   - name: snort-opensuse-leap
     image: opensuse:leap
-  - name: snort-opensuse-tumbleweed
-    image: opensuse:tumbleweed
   - name: snort-ubuntu-latest
     image: ubuntu:latest
   - name: snort-ubuntu-rolling

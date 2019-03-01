@@ -85,7 +85,6 @@ This role has been tested against the following distributions and Ansible versio
 |fedora-latest|yes|yes|yes*|
 |fedora-rawhide*|yes|yes|yes*|
 |opensuse-leap|no|no|no*|
-|opensuse-tumbleweed|no|no|no*|
 |ubuntu-devel*|no|no|no*|
 |ubuntu-latest|no|no|no*|
 |ubuntu-rolling|no|no|no*|
