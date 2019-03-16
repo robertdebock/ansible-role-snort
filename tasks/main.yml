@@ -3,7 +3,7 @@
 - name: install required software
   package:
     name: "{{ snort_required_software }}"
-    state: "{{ snort_package_state }}"
+    state: present
   register: snort_install_required_software
   until: snort_install_required_software
   retries: 3
@@ -17,7 +17,7 @@
 - name: install software
   package:
     name: "{{ snort_packages }}"
-    state: "{{ snort_package_state }}"
+    state: present
   register: snort_install_softwrae
   until: snort_install_softwrae
   retries: 3
@@ -34,4 +34,4 @@
     state: started
     enabled: yes
   when:
-    - ansible_virtualization_type != "docker" or snort_ignore_docker
+    - ansible_virtualization_type != "docker"

@@ -3,56 +3,64 @@ dependency:
   name: galaxy
   options:
     role-file: requirements.yml
-driver:
-  name: docker
 lint:
   name: yamllint
+driver:
+  name: docker
 platforms:
   - name: snort-alpine-edge
     image: alpine:edge
+    pre_build_image: yes
     command: sh -c "while true ; do sleep 1 ; done"
   - name: snort-alpine-latest
     image: alpine:latest
+    pre_build_image: yes
     command: sh -c "while true ; do sleep 1 ; done"
   - name: snort-archlinux
     image: archlinux/base
+    pre_build_image: yes
   - name: snort-centos-6
     image: centos:6
+    pre_build_image: yes
   - name: snort-centos-latest
     image: centos:latest
+    pre_build_image: yes
   - name: snort-debian-latest
     image: debian:latest
+    pre_build_image: yes
   - name: snort-debian-stable
     image: debian:stable
+    pre_build_image: yes
   - name: snort-debian-unstable
     image: debian:unstable
+    pre_build_image: yes
   - name: snort-fedora-latest
     image: fedora:latest
+    pre_build_image: yes
   - name: snort-fedora-rawhide
     image: fedora:rawhide
+    pre_build_image: yes
   - name: snort-opensuse-leap
     image: opensuse:leap
+    pre_build_image: yes
   - name: snort-ubuntu-latest
     image: ubuntu:latest
+    pre_build_image: yes
   - name: snort-ubuntu-rolling
     image: ubuntu:rolling
+    pre_build_image: yes
   - name: snort-ubuntu-devel
     image: ubuntu:devel
+    pre_build_image: yes
   - name: snort-ubuntu-latest
     image: ubuntu:latest
+    pre_build_image: yes
 provisioner:
   name: ansible
-  inventory:
-    host_vars:
-      snort-fedora-rawhide:
-        ansible_python_interpreter: /usr/bin/python3
-    group_vars:
-      all:
-        snort_ignore_docker: no
+  playbooks:
+    prepare: ../resources/prepare.yml
+    converge: ../resources/playbook.yml
   lint:
     name: ansible-lint
-  config_options:
-    defaults:
-      callback_plugins: /usr/lib/python2.7/site-packages/ara/plugins/callbacks
 scenario:
   name: default
