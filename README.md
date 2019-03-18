@@ -13,14 +13,24 @@ This example is taken from `molecule/default/playbook.yml`:
 ---
 - name: Converge
   hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - robertdebock.snort
+```
+
+The machine you are running this on, may need to be prepared. Tests have been done on machines prepared by this playbook:
+```yaml
+---
+- name: Prepare
+  hosts: all
   gather_facts: no
   become: yes
 
   roles:
     - robertdebock.bootstrap
     - robertdebock.epel
-    - robertdebock.snort
-
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -32,15 +42,6 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for snort
-
-# To update all packages installed by this roles, set `snort_package_state` to `latest`.
-snort_package_state: present
-
-# Some Docker containers do not allow managing services, rebooting and writing
-# to some locations in /etc. The role skips tasks that will typically fail in
-# Docker. With this parameter you can tell the role to -not- skip these tasks.
-snort_ignore_docker: yes
-
 ```
 
 Requirements
