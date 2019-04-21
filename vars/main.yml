@@ -2,7 +2,7 @@
 # vars file for snort
 snort_packages:
   - https://snort.org/downloads/snort/daq-2.0.6-1.centos7.x86_64.rpm
-  - https://www.snort.org/downloads/snort/snort-2.9.12-1.centos7.x86_64.rpm
+  - https://www.snort.org/downloads/snort/snort-2.9.13-1.centos7.x86_64.rpm
 
 snort_required_software:
   - libdnet
