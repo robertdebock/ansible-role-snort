@@ -6,4 +6,4 @@
 
   roles:
     - robertdebock.bootstrap
-    - robertdebock.epel
+    - robertdebock.buildtools

@@ -1,26 +1,53 @@
 ---
 # tasks file for snort
-- name: install required software
+- name: install requirements
   package:
-    name: "{{ snort_required_software }}"
+    name: "{{ item }}"
     state: present
-  register: snort_install_required_software
-  until: snort_install_required_software
+  register: snort_install_requirements
+  until: snort_install_requirements is succeeded
   retries: 3
+  with_items:
+    - "{{ snort_requirements }}"
 
-- name: create a symbolic link libdnet.1
+- name: unarchive software daq
+  unarchive:
+    src: "{{ snort_archive_daq }}"
+    dest: "{{ snort_unarchive_directory }}"
+    remote_src: yes
+    creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
+  register: unarchive_software_daq
+  until: unarchive_software_daq is succeeded
+  retries: 3
+  notify:
+    - configure daq
+    - make daq
+    - make install daq
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: unarchive software snort
+  unarchive:
+    src: "{{ snort_archive }}"
+    dest: "{{ snort_unarchive_directory }}"
+    remote_src: yes
+    creates: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
+  register: unarchive_software
+  until: unarchive_software is succeeded
+  retries: 3
+  notify:
+    - configure
+    - make
+    - make install
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: ensure rules directory exists
   file:
-    src: /usr/lib64/libdnet.so.1.0.1
-    dest: /usr/lib64/libdnet.1
-    state: link
-
-- name: install software
-  package:
-    name: "{{ snort_packages }}"
-    state: present
-  register: snort_install_softwrae
-  until: snort_install_softwrae
-  retries: 3
+    path: /etc/snort/rules
+    state: directory
 
 - name: install community rules
   unarchive:

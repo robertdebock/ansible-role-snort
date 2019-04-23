@@ -1,11 +1,20 @@
 ---
 # vars file for snort
-snort_packages:
-  - https://snort.org/downloads/snort/daq-2.0.6-1.centos7.x86_64.rpm
-  - https://www.snort.org/downloads/snort/snort-2.9.13-1.centos7.x86_64.rpm
+snort_requirements:
+  # dag:
+  - bison
+  - flex
+  - libpcap-devel
+  # snort:
+  - pcre-devel
+  - libdnet-devel
+  - libtirpc-devel
+  - zlib-devel
+  - luajit-devel
+  - openssl-devel
 
-snort_required_software:
-  - libdnet
+snort_archive_daq: https://www.snort.org/downloads/snort/daq-{{ snort_daq_version }}.tar.gz
+snort_archive: https://www.snort.org/downloads/snort/snort-{{ snort_version }}.tar.gz
 
 snort_config_directory: /etc
 snort_config_file: snort.conf

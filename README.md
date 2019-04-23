@@ -30,7 +30,7 @@ The machine you are running this on, may need to be prepared. Tests have been do
 
   roles:
     - robertdebock.bootstrap
-    - robertdebock.epel
+    - robertdebock.buildtools
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -42,6 +42,11 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for snort
+
+snort_unarchive_directory: /tmp
+
+snort_daq_version: 2.0.6
+snort_version: 2.9.13
 ```
 
 Requirements
@@ -55,7 +60,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
-- robertdebock.epel
+- robertdebock.buildtools
 
 ```
 
