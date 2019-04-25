@@ -1,6 +1,7 @@
 ---
 # vars file for snort
-snort_requirements:
+_snort_requirements:
+  CentOS:
   # dag:
   - bison
   - flex
@@ -12,6 +13,20 @@ snort_requirements:
   - zlib-devel
   - luajit-devel
   - openssl-devel
+  Fedora:
+  # dag:
+  - bison
+  - flex
+  - libpcap-devel
+  # snort:
+  - pcre-devel
+  - libdnet-devel
+  - libtirpc-devel
+  - zlib-devel
+  - luajit-devel
+  - openssl-devel
+
+snort_requirements: "{{ _snort_requirements[ansible_distribution] }}"
 
 snort_archive_daq: https://www.snort.org/downloads/snort/daq-{{ snort_daq_version }}.tar.gz
 snort_archive: https://www.snort.org/downloads/snort/snort-{{ snort_version }}.tar.gz

@@ -30,6 +30,7 @@ The machine you are running this on, may need to be prepared. Tests have been do
 
   roles:
     - robertdebock.bootstrap
+    - robertdebock.epel
     - robertdebock.buildtools
 ```
 
@@ -60,6 +61,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.epel
 - robertdebock.buildtools
 
 ```
