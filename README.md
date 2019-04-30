@@ -29,9 +29,12 @@ The machine you are running this on, may need to be prepared. Tests have been do
   become: yes
 
   roles:
-    - robertdebock.bootstrap
-    - robertdebock.epel
-    - robertdebock.buildtools
+    - role: robertdebock.bootstrap
+    - role: robertdebock.epel
+    - role: robertdebock.buildtools
+    - role: robertdebock.environment
+      environment_list:
+        PATH: "$PATH:/usr/local/bin"
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -63,6 +66,7 @@ The following roles can be installed to ensure all requirements are met, using `
 - robertdebock.bootstrap
 - robertdebock.epel
 - robertdebock.buildtools
+- robertdebock.environment
 
 ```
 
@@ -82,20 +86,20 @@ This role has been tested against the following distributions and Ansible versio
 
 |distribution|ansible 2.6|ansible 2.7|ansible devel|
 |------------|-----------|-----------|-------------|
-|alpine-edge*|no|no|no*|
-|alpine-latest|no|no|no*|
-|archlinux|no|no|no*|
-|centos-6|no|no|no*|
+|alpine-edge*|yes|yes|yes*|
+|alpine-latest|yes|yes|yes*|
+|archlinux|yes|yes|yes*|
+|centos-6|yes|yes|yes*|
 |centos-latest|yes|yes|yes*|
-|debian-latest|no|no|no*|
-|debian-stable|no|no|no*|
-|debian-unstable*|no|no|no*|
+|debian-latest|yes|yes|yes*|
+|debian-stable|yes|yes|yes*|
+|debian-unstable*|yes|yes|yes*|
 |fedora-latest|yes|yes|yes*|
 |fedora-rawhide*|yes|yes|yes*|
-|opensuse-leap|no|no|no*|
-|ubuntu-devel*|no|no|no*|
-|ubuntu-latest|no|no|no*|
-|ubuntu-rolling|no|no|no*|
+|opensuse-leap|yes|yes|yes*|
+|ubuntu-devel*|yes|yes|yes*|
+|ubuntu-latest|yes|yes|yes*|
+|ubuntu-rolling|yes|yes|yes*|
 
 A single star means the build may fail, it's marked as an experimental build.
 

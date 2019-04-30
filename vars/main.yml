@@ -2,11 +2,9 @@
 # vars file for snort
 _snort_requirements:
   CentOS:
-    # dag:
     - bison
     - flex
     - libpcap-devel
-    # snort:
     - pcre-devel
     - libdnet-devel
     - libtirpc-devel

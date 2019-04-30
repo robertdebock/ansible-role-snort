@@ -2,13 +2,11 @@
 # tasks file for snort
 - name: install requirements
   package:
-    name: "{{ item }}"
+    name: "{{ snort_requirements }}"
     state: present
   register: snort_install_requirements
   until: snort_install_requirements is succeeded
   retries: 3
-  with_items:
-    - "{{ snort_requirements }}"
 
 - name: unarchive software daq
   unarchive:
