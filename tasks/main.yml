@@ -8,15 +8,19 @@
   until: snort_install_requirements is succeeded
   retries: 3
 
+- name: download software daq
+  get_url:
+    url: "{{ snort_archive_daq }}"
+    dest: "{{ snort_unarchive_directory }}"
+  register: download_software_daq
+  until: download_software_daq is succeeded
+  retries: 3
+
 - name: unarchive software daq
   unarchive:
-    src: "{{ snort_archive_daq }}"
+    src: "{{ snort_unarchive_directory }}/{{ snort_archive_daq | basename }}"
     dest: "{{ snort_unarchive_directory }}"
-    remote_src: yes
     creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-  register: unarchive_software_daq
-  until: unarchive_software_daq is succeeded
-  retries: 3
   notify:
     - configure daq
     - make daq
