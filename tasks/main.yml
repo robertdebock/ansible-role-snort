@@ -21,6 +21,7 @@
     src: "{{ snort_unarchive_directory }}/{{ snort_archive_daq | basename }}"
     dest: "{{ snort_unarchive_directory }}"
     creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
+    remote_src: yes
   notify:
     - configure daq
     - make daq
