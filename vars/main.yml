@@ -1,6 +1,26 @@
 ---
 # vars file for snort
 _snort_requirements:
+  Alpine:
+    - bison
+    - flex
+    - libpcap-dev
+    - pcre-dev
+    - libdnet-dev
+    - libtirpc-dev
+    - zlib-dev
+    - luajit-dev
+    - openssl-dev
+  Archlinux:
+    - bison
+    - flex
+    - libpcap
+    - pcre
+    - libdnet
+    - libtirpc
+    - zlib
+    - luajit
+    - openssl
   CentOS:
     - bison
     - flex
