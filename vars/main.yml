@@ -52,6 +52,16 @@ _snort_requirements:
     - zlib-devel
     - luajit-devel
     - openssl-devel
+  OpenSUSE Leap:
+    - bison
+    - flex
+    - libpcap-devel
+    - pcre-devel
+    - libdnet-devel
+    - libtirpc-devel
+    - zlib-devel
+    - luajit-devel
+    - openssl-devel
   Ubuntu:
     - bison
     - flex
