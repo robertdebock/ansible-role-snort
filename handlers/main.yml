@@ -1,7 +1,7 @@
 ---
 # handlers file for snort
 - name: configure daq
-  command: ./configure
+  command: ./configure --with-daq-includes=/usr/local/include --with-daq-libraries=/usr/local/lib
   args:
     chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
     creates: Makefile
