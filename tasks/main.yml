@@ -57,6 +57,9 @@
     src: https://snort.org/downloads/community/community-rules.tar.gz
     dest: /etc/snort/rules
     remote_src: yes
+  register: snort_install_community_rules
+  until: snort_install_community_rules is succeeded
+  retries: 3
 
 - name: start and enable software
   service:
