@@ -52,7 +52,7 @@ _snort_requirements:
     - zlib-devel
     - luajit-devel
     - openssl-devel
-  OpenSUSE Leap:
+  openSUSE Leap:
     - bison
     - flex
     - libpcap-devel
