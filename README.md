@@ -48,7 +48,7 @@ These variables are set in `defaults/main.yml`:
 snort_unarchive_directory: /tmp
 
 snort_daq_version: 2.0.6
-snort_version: 2.9.14
+snort_version: 2.9.13
 ```
 
 Requirements
