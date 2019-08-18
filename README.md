@@ -48,7 +48,7 @@ These variables are set in `defaults/main.yml`:
 snort_unarchive_directory: /tmp
 
 snort_daq_version: 2.0.6
-snort_version: 2.9.13
+snort_version: 2.9.14
 ```
 
 Requirements
@@ -98,6 +98,7 @@ This role has been tested against the following distributions and Ansible versio
 |ubuntu-rolling|yes|yes|yes*|
 
 A single star means the build may fail, it's marked as an experimental build.
+
 
 Included version(s)
 -------------------
