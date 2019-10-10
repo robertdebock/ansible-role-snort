@@ -103,7 +103,7 @@ This role has been tested against the following distributions and Ansible versio
 |alpine-latest|no|no|no*|
 |archlinux|no|no|no*|
 |centos-7|yes|yes|yes*|
-|centos-latest|yes|yes|yes*|
+|centos-latest|no|no|no*|
 |debian-stable|yes|yes|yes*|
 |debian-unstable*|yes|yes|yes*|
 |fedora-latest|yes|yes|yes*|
@@ -115,6 +115,16 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Exceptions
+----------
+
+Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
+
+| variation                 | reason                 |
+|---------------------------|------------------------|
+| Alpine | Could not allocate space to store a copy of the filter string |
+| Archlinux | fatal error: rpc/rpc.h: No such file or directory |
+| CentOS latest | ERROR! Libpcap library version >= 1.0.0 not found. |
 
 Included version(s)
 -------------------

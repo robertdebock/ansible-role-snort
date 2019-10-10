@@ -58,6 +58,12 @@ snort_requirements: "{{ _snort_requirements[ansible_os_family] }}"
 snort_archive_daq: https://www.snort.org/downloads/snort/daq-{{ snort_daq_version }}.tar.gz
 snort_archive: https://www.snort.org/downloads/snort/snort-{{ snort_version }}.tar.gz
 
+_snort_validate_certs:
+  default: yes
+  Debian: no
+
+snort_validate_certs: "{{ _snort_validate_certs[ansible_os_family] | default(_snort_validate_certs['default']) }}"
+
 snort_config_directory: /etc
 snort_config_file: snort.conf
 

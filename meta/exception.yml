@@ -1,0 +1,8 @@
+---
+exceptions:
+  - variation: Alpine
+    reason: "Could not allocate space to store a copy of the filter string"
+  - variation: Archlinux
+    reason: "fatal error: rpc/rpc.h: No such file or directory"
+  - variation: CentOS latest
+    reason: "ERROR! Libpcap library version >= 1.0.0 not found."

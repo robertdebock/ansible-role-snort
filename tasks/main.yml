@@ -12,6 +12,7 @@
   get_url:
     url: "{{ snort_archive_daq }}"
     dest: "{{ snort_unarchive_directory }}"
+    validate_certs: "{{ snort_validate_certs }}"
   register: download_software_daq
   until: download_software_daq is succeeded
   retries: 3
