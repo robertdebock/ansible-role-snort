@@ -8,21 +8,13 @@
   until: snort_install_requirements is succeeded
   retries: 3
 
-- name: download software daq
-  get_url:
-    url: "{{ snort_archive_daq }}"
-    dest: "{{ snort_unarchive_directory }}"
-    validate_certs: "{{ snort_validate_certs }}"
-  register: download_software_daq
-  until: download_software_daq is succeeded
-  retries: 3
-
 - name: unarchive software daq
   unarchive:
-    src: "{{ snort_unarchive_directory }}/{{ snort_archive_daq | basename }}"
+    src: "{{ snort_archive_daq }}"
     dest: "{{ snort_unarchive_directory }}"
-    creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
+    validate_certs: "{{ snort_validate_certs }}"
     remote_src: yes
+    creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
   notify:
     - configure daq
     - make daq
@@ -35,6 +27,7 @@
   unarchive:
     src: "{{ snort_archive }}"
     dest: "{{ snort_unarchive_directory }}"
+    validate_certs: "{{ snort_validate_certs }}"
     remote_src: yes
     creates: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
   register: unarchive_software
@@ -57,6 +50,7 @@
   unarchive:
     src: https://snort.org/downloads/community/community-rules.tar.gz
     dest: /etc/snort/rules
+    validate_certs: "{{ snort_validate_certs }}"
     remote_src: yes
   register: snort_install_community_rules
   until: snort_install_community_rules is succeeded

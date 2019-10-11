@@ -51,7 +51,7 @@ These variables are set in `defaults/main.yml`:
 snort_unarchive_directory: /tmp
 
 snort_daq_version: 2.0.6
-snort_version: 2.9.14.1
+snort_version: 2.9.15
 ```
 
 Requirements
@@ -75,7 +75,6 @@ This role uses the following modules:
 ---
 - command
 - file
-- get_url
 - make
 - meta
 - package
