@@ -32,7 +32,6 @@ galaxy_info:
   galaxy_tags:
     - snort
     - centos
-    - opensuse
     - rhel
     - server
     - system
