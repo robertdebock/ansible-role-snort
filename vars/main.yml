@@ -11,16 +11,6 @@ _snort_requirements:
     - zlib-dev
     - luajit-dev
     - openssl-dev
-  Archlinux:
-    - bison
-    - flex
-    - libpcap
-    - pcre
-    - libdnet
-    - libtirpc
-    - zlib
-    - luajit
-    - openssl
   Debian:
     - bison
     - flex
