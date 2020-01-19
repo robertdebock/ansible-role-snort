@@ -67,7 +67,7 @@
     service_list:
       - name: "{{ snort_service }}"
         description: Snort NIDS Daemon
-        start_command: /usr/local/bin/snort -q -c /etc/snort/rules/community-rules/snort.conf -i {{ ansible_default_ipv4.interface }}
+        start_command: /usr/local/bin/snort -q -i {{ ansible_default_ipv4.interface }}
 
 - name: start and enable software
   service:
