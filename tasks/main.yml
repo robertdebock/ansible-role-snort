@@ -68,6 +68,8 @@
       - name: "{{ snort_service }}"
         description: Snort NIDS Daemon
         start_command: /usr/local/bin/snort -q -i {{ ansible_default_ipv4.interface }}
+        environment_variables:
+          LD_LIBRARY_PATH: /usr/local/lib
 
 - name: start and enable software
   service:
