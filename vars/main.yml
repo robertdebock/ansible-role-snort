@@ -4,44 +4,45 @@ _snort_requirements:
   Alpine:
     - bison
     - flex
-    - libpcap-dev
-    - pcre-dev
     - libdnet-dev
+    - libpcap-dev
     - libtirpc-dev
-    - zlib-dev
     - luajit-dev
     - openssl-dev
+    - pcre-dev
+    - zlib-dev
   Debian:
     - bison
     - flex
+    - libdumbnet-dev
+    - libluajit-5.1-dev
     - libpcap-dev
     - libpcre3-dev
-    - libdumbnet-dev
-    - libtirpc-dev
-    - zlib1g-dev
-    - libluajit-5.1-dev
     - libssl-dev
+    - libtirpc-dev
     - pkg-config
+    - zlib1g-dev
   RedHat:
     - bison
     - flex
-    - libpcap-devel
-    - pcre-devel
     - libdnet-devel
+    - libpcap-devel
     - libtirpc-devel
-    - zlib-devel
+    - libtirpc-devel
     - luajit-devel
     - openssl-devel
+    - pcre-devel
+    - zlib-devel
   Suse:
     - bison
     - flex
-    - libpcap-devel
-    - pcre-devel
     - libdnet-devel
+    - libpcap-devel
     - libtirpc-devel
-    - zlib-devel
     - luajit-devel
     - openssl-devel
+    - pcre-devel
+    - zlib-devel
 
 snort_requirements: "{{ _snort_requirements[ansible_os_family] }}"
 
