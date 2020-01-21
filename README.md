@@ -66,9 +66,10 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.buildtools
 - robertdebock.core_dependencies
 - robertdebock.epel
-- robertdebock.buildtools
+- robertdebock.service
 
 ```
 
@@ -90,7 +91,7 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |---------|----|
 |amazon|all|
 |debian|all|
-|el|7, 8|
+|el|7|
 |fedora|all|
 |opensuse|all|
 |ubuntu|bionic|

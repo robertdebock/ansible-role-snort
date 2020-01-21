@@ -25,13 +25,14 @@ _snort_requirements:
   RedHat:
     - bison
     - flex
+    - hwloc-devel
     - libdnet-devel
     - libpcap-devel
-    - libtirpc-devel
     - libtirpc-devel
     - luajit-devel
     - openssl-devel
     - pcre-devel
+    - pkgconfig
     - zlib-devel
   Suse:
     - bison
