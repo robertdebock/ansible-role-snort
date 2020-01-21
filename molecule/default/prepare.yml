@@ -9,3 +9,4 @@
     - role: robertdebock.core_dependencies
     - role: robertdebock.epel
     - role: robertdebock.buildtools
+    - role: robertdebock.powertools
