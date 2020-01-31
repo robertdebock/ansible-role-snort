@@ -10,7 +10,7 @@ on:
     tags_ignore:
       - '*'
   schedule:
-    - cron: '45 0 19 * *'
+    - cron: '58 21 19 * *'
 
 jobs:
   lint:
@@ -44,9 +44,7 @@ jobs:
           - image: "fedora"
             tag: "30"
           - image: "fedora"
-            tag: "latest"
-          - image: "fedora"
-            tag: "rawhide"
+            tag: "31"
           - image: "opensuse"
             tag: "latest"
           - image: "ubuntu"

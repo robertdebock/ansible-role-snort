@@ -73,6 +73,7 @@ The following roles can be installed to ensure all requirements are met, using `
 
 ```
 
+
 Context
 -------
 
@@ -92,7 +93,7 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |amazon|all|
 |debian|all|
 |el|7|
-|fedora|all|
+|fedora|30, 31|
 |opensuse|all|
 |ubuntu|bionic|
 
@@ -112,6 +113,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 | Alpine | Could not allocate space to store a copy of the filter string |
 | Archlinux | fatal error: rpc/rpc.h: No such file or directory |
 | CentOS latest | ERROR! Libpcap library version >= 1.0.0 not found. |
+| fedora:rawhide | ./sf_ip.h:231:31: warning: taking address of packed member of struct _sfaddr may result in an unaligned pointer value [-Waddress-of-packed-member] |
 
 Included version(s)
 -------------------
