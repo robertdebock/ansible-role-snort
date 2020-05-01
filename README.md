@@ -96,7 +96,7 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |amazon|all|
 |debian|all|
 |el|7|
-|fedora|30, 31|
+|fedora|all|
 |opensuse|all|
 |ubuntu|bionic|
 
