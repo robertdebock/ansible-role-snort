@@ -1,4 +1,3 @@
----
 galaxy_info:
   author: Robert de Bock
   role_name: snort
@@ -8,24 +7,6 @@ galaxy_info:
   min_ansible_version: 2.8
 
   platforms:
-    - name: Amazon
-      versions:
-        - all
-    - name: Debian
-      versions:
-        - all
-    - name: EL
-      versions:
-        - 7
-    - name: Fedora
-      versions:
-        - all
-    - name: OpenSUSE
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - bionic
 
   galaxy_tags:
     - snort
