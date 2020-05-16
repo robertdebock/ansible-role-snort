@@ -30,8 +30,8 @@
     validate_certs: "{{ snort_validate_certs }}"
     remote_src: yes
     creates: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
-  register: unarchive_software
-  until: unarchive_software is succeeded
+  register: snort_unarchive_software
+  until: snort_unarchive_software is succeeded
   retries: 3
   notify:
     - configure
