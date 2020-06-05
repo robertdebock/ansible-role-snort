@@ -38,5 +38,5 @@ script:
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: UNSET
+    secure: "UNSET"
   email: false
