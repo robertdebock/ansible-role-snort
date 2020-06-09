@@ -1,5 +1,10 @@
 ---
 # handlers file for snort
+- name: autoreconf
+  command: autoreconf -f -i
+  args:
+    chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
+
 - name: configure daq
   command: ./configure
   args:

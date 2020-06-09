@@ -16,6 +16,7 @@
     remote_src: yes
     creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
   notify:
+    - autoreconf
     - configure daq
     - make daq
     - make install daq

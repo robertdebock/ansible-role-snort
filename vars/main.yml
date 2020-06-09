@@ -2,16 +2,19 @@
 # vars file for snort
 _snort_requirements:
   Alpine:
+    - automake
     - bison
     - flex
     - libdnet-dev
     - libpcap-dev
     - libtirpc-dev
+    - libtool
     - luajit-dev
     - openssl-dev
     - pcre-dev
     - zlib-dev
   Debian:
+    - automake
     - bison
     - flex
     - libdumbnet-dev
@@ -20,21 +23,25 @@ _snort_requirements:
     - libpcre3-dev
     - libssl-dev
     - libtirpc-dev
+    - libtool
     - pkg-config
     - zlib1g-dev
   RedHat:
+    - automake
     - bison
     - flex
     - hwloc-devel
     - libdnet-devel
     - libpcap-devel
     - libtirpc-devel
+    - libtool
     - luajit-devel
     - openssl-devel
     - pcre-devel
     - pkgconfig
     - zlib-devel
   Suse:
+    - automake
     - bison
     - flex
     - libdnet-devel
