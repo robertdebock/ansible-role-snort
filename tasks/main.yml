@@ -8,69 +8,40 @@
   until: snort_install_requirements is succeeded
   retries: 3
 
-- name: unarchive software daq
-  unarchive:
-    src: "{{ snort_archive_daq }}"
-    dest: "{{ snort_unarchive_directory }}"
-    validate_certs: "{{ snort_validate_certs }}"
-    remote_src: yes
-    creates: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-  notify:
-    - autoreconf
-    - configure daq
-    - make daq
-    - make install daq
-
-- name: flush handlers
-  meta: flush_handlers
-
-- name: unarchive software snort
-  unarchive:
-    src: "{{ snort_archive }}"
-    dest: "{{ snort_unarchive_directory }}"
-    validate_certs: "{{ snort_validate_certs }}"
-    remote_src: yes
-    creates: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
-  register: snort_unarchive_software
-  until: snort_unarchive_software is succeeded
+- name: install snort
+  package:
+    name: "{{ snort_package_url }}"
+  register: snort_install_snort
+  until: snort_install_snort is succeeded
   retries: 3
-  notify:
-    - configure
-    - make
-    - make install
 
-- name: flush handlers
-  meta: flush_handlers
-
-- name: ensure rules directory exists
+- name: link libdnet.1
   file:
-    path: /etc/snort/rules
-    state: directory
+    src: /usr/lib64/libdnet.so.1.0.1
+    dest: /usr/lib64/libdnet.1
+    state: link
 
-- name: install community rules
+- name: get rules
   unarchive:
-    src: "{{ item }}"
+    src: "{{ item.url }}"
     dest: /etc/snort/rules
-    validate_certs: "{{ snort_validate_certs }}"
     remote_src: yes
-  loop:
-    - "https://www.snort.org/downloads/community/opensource.gz"
-    - "https://www.snort.org/downloads/community/snort3-community-rules.tar.gz"
-    - "https://snort.org/downloads/community/community-rules.tar.gz"
-  register: snort_install_community_rules
-  until: snort_install_community_rules is succeeded
+  loop: "{{ snort_community_rules }}"
+  loop_control:
+    label: "{{ item.url }}"
+  register: snort_get_community_rules
+  until: snort_get_community_rules is succeeded
   retries: 3
 
-- name: create service
-  import_role:
-    name: robertdebock.service
-  vars:
-    service_list:
-      - name: "{{ snort_service }}"
-        description: Snort NIDS Daemon
-        start_command: /usr/local/bin/snort -q -i {{ ansible_default_ipv4.interface }}
-        environment_variables:
-          LD_LIBRARY_PATH: /usr/local/lib
+- name: include rules
+  lineinfile:
+    path: /etc/snort/snort.conf
+    line: "include $SO_RULES_PATH/{{ item.file }}"
+  loop: "{{ snort_community_rules }}"
+  loop_control:
+    label: "{{ item.file }}"
+  notify:
+    - restart snort
 
 - name: start and enable software
   service:

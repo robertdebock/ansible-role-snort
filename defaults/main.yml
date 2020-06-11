@@ -1,7 +1,3 @@
 ---
 # defaults file for snort
-
-snort_unarchive_directory: /tmp
-
-snort_daq_version: 2.0.7
 snort_version: 2.9.16
