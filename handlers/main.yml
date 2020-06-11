@@ -1,47 +1,6 @@
 ---
 # handlers file for snort
-- name: autoreconf
-  command: autoreconf -f -i
-  args:
-    chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-
-- name: configure daq
-  command: ./configure
-  args:
-    chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-    creates: Makefile
-
-- name: make daq
-  make:
-    chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-    params:
-      NUM_THREADS: "{{ ansible_processor_vcpus }}"
-
-- name: make install daq
-  make:
-    chdir: "{{ snort_unarchive_directory }}/daq-{{ snort_daq_version }}"
-    target: install
-
-- name: configure
-  command: ./configure --enable-sourcefire
-  args:
-    chdir: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
-    creates: Makefile
-  environment:
-    PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-- name: make
-  make:
-    chdir: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
-    params:
-      NUM_THREADS: "{{ ansible_processor_vcpus }}"
-
-- name: make install
-  make:
-    chdir: "{{ snort_unarchive_directory }}/snort-{{ snort_version }}"
-    target: install
-
-- name: restart software
+- name: restart snort
   service:
     name: "{{ snort_service }}"
     state: restarted

@@ -5,7 +5,7 @@
 language: python
 
 python:
-  - "3.7"
+  - "3.8"
 
 services:
   - docker
@@ -14,16 +14,8 @@ env:
   global:
     namespace="robertdebock"
   matrix:
-    - image="amazonlinux" tag="1"
-    - image="amazonlinux" tag="latest"
-    - image="debian" tag="latest"
-    - image="debian" tag="bullseye"
     - image="centos" tag="7"
     - image="fedora" tag="31"
-    - image="fedora" tag="latest"
-    - image="fedora" tag="rawhide"
-    - image="opensuse" tag="latest"
-    - image="ubuntu" tag="1804"
 
 cache:
   - pip
@@ -38,5 +30,6 @@ script:
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: "UNSET"
+    rooms:
+      - secure: "UNSET"
   email: false

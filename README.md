@@ -1,12 +1,12 @@
-# snort
+# [snort](#snort)
 
 Install and configure snort on your system.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-snort.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-snort)|[![github](https://github.com/robertdebock/ansible-role-snort/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-snort/actions)|[![quality](https://img.shields.io/ansible/quality/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![downloads](https://img.shields.io/ansible/role/d/32397)](https://galaxy.ansible.com/robertdebock/snort)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-snort.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-snort)|[![github](https://github.com/robertdebock/ansible-role-snort/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-snort/actions)|[![quality](https://img.shields.io/ansible/quality/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![downloads](https://img.shields.io/ansible/role/d/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-snort.svg)](https://github.com/robertdebock/ansible-role-snort/releases/)|
 
-## Example Playbook
+## [Example Playbook](#example-playbook)
 
 This example is taken from `molecule/resources/converge.yml` and is tested on each push, pull request and release.
 ```yaml
@@ -30,9 +30,7 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
 
   roles:
     - role: robertdebock.bootstrap
-    - role: robertdebock.core_dependencies
     - role: robertdebock.epel
-    - role: robertdebock.buildtools
 ```
 
 For verification `molecule/resources/verify.yml` run after the role has been applied.
@@ -50,20 +48,16 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
-## Role Variables
+## [Role Variables](#role-variables)
 
 These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for snort
-
-snort_unarchive_directory: /tmp
-
-snort_daq_version: 2.0.6
-snort_version: 2.9.15.1
+snort_version: 2.9.16
 ```
 
-## Requirements
+## [Requirements](#requirements)
 
 - Access to a repository containing packages, likely on the internet.
 - A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
@@ -73,32 +67,25 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
-- robertdebock.buildtools
-- robertdebock.core_dependencies
 - robertdebock.epel
-- robertdebock.service
 
 ```
 
-## Context
+## [Context](#context)
 
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/snort.png "Dependency")
 
-## Compatibility
+## [Compatibility](#compatibility)
 
-This role has been tested on these [container images](https://hub.docker.com/):
+This role has been tested on these [container images](https://hub.docker.com/u/robertdebock):
 
 |container|tags|
 |---------|----|
-|amazon|all|
-|debian|all|
 |el|7|
-|fedora|all|
-|opensuse|all|
-|ubuntu|bionic|
+|fedora|31|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
 
@@ -106,7 +93,7 @@ The minimum version of Ansible required is 2.8 but tests have been done to:
 - The current version.
 - The development version.
 
-## Exceptions
+## [Exceptions](#exceptions)
 
 Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
 
@@ -117,13 +104,13 @@ Some variarations of the build matrix do not work. These are the variations and 
 | CentOS latest | ERROR! Libpcap library version >= 1.0.0 not found. |
 | fedora:rawhide | ./sf_ip.h:231:31: warning: taking address of packed member of struct _sfaddr may result in an unaligned pointer value [-Waddress-of-packed-member] |
 
-## Included version(s)
+## [Included version(s)](#included-versions)
 
 This role [refers to a version](https://github.com/robertdebock/ansible-role-snort/blob/master/vars/main.yml) released by Snort. Check the released version(s) here:
 - [snort](https://www.snort.org/downloads).
 
 This version reference means a role may get outdated. Monthly tests occur to see if [bit-rot](https://en.wikipedia.org/wiki/Software_rot) occured. If you however find a problem, please create an issue, I'll get on it as soon as possible.
-## Testing
+## [Testing](#testing)
 
 [Unit tests](https://travis-ci.com/robertdebock/ansible-role-snort) are done on every commit, pull request, release and periodically.
 
@@ -157,12 +144,12 @@ image="centos" tox
 image="debian" tag="stable" tox
 ```
 
-## License
+## [License](#license)
 
 Apache-2.0
 
 
-## Author Information
+## [Author Information](#author-information)
 
 [Robert de Bock](https://robertdebock.nl/)
 
