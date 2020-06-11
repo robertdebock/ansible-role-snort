@@ -3,6 +3,7 @@
 snort_requirements:
   - initscripts
   - libdnet
+  - chkconfig
 
 snort_download_url: "https://www.snort.org/downloads/snort"
 
