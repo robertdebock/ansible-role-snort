@@ -1,0 +1,6 @@
+---
+- name: test if snort_version is set correctly
+  assert:
+    that:
+      - snort_version is defined
+      - snort_version | length > 0
