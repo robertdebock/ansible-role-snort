@@ -54,6 +54,7 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for snort
+
 snort_version: 2.9.16
 ```
 
