@@ -11,7 +11,7 @@ snort_download_url: "https://www.snort.org/downloads/snort"
 _snort_package_url:
   default: UNSET
   Fedora: "{{ snort_download_url}}/snort-{{ snort_version }}-1.f{{ ansible_distribution_major_version }}.{{ ansible_architecture }}.rpm"
-  CentOS: "{{ snort_download_url}}/snort-{{ snort_version }}-1.{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}.{{ ansible_architecture }}.rpm"
+  CentOS: "{{ snort_download_url}}/snort-{{ snort_version }}-1.1.{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}.{{ ansible_architecture }}.rpm"
 
 snort_package_url: "{{ _snort_package_url[ansible_distribution] | default(_snort_package_url['default']) }}"
 
