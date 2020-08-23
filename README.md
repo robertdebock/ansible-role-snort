@@ -55,7 +55,7 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for snort
 
-snort_version: 2.9.16
+snort_version: 2.9.16-1
 ```
 
 ## [Requirements](#requirements)
@@ -85,8 +85,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|el|7|
-|fedora|31|
+|el|8|
+|fedora|32|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
 
