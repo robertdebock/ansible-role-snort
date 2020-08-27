@@ -17,12 +17,14 @@
     src: /usr/lib64/libdnet.so.1.0.1
     dest: /usr/lib64/libdnet.1
     state: link
+    mode: "0755"
 
 - name: get rules
   unarchive:
     src: "{{ item.url }}"
     dest: /etc/snort/rules
     remote_src: yes
+    mode: "0755"
   loop: "{{ snort_community_rules }}"
   loop_control:
     label: "{{ item.url }}"
@@ -31,6 +33,7 @@
   lineinfile:
     path: /etc/snort/snort.conf
     line: "include $SO_RULES_PATH/{{ item.file }}"
+    mode: "0644"
   loop: "{{ snort_community_rules }}"
   loop_control:
     label: "{{ item.file }}"
