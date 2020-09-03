@@ -39,7 +39,7 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 - name: Verify
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   tasks:
     - name: check if connection still works
@@ -55,7 +55,7 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for snort
 
-snort_version: 2.9.16-1
+snort_version: 2.9.16.1
 ```
 
 ## [Requirements](#requirements)
