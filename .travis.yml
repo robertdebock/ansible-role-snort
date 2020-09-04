@@ -4,6 +4,9 @@
 #
 language: python
 
+os: linux
+dist: xenial
+
 python:
   - "3.8"
 
@@ -13,9 +16,9 @@ services:
 env:
   global:
     namespace="robertdebock"
-  matrix:
-    - image="centos" tag="7"
-    - image="fedora" tag="31"
+  jobs:
+    - image="centos" tag="latest"
+    - image="fedora" tag="latest"
 
 cache:
   - pip
@@ -25,11 +28,12 @@ install:
   - pip install tox
 
 script:
-  - tox --parallel all
+  - function retry { counter=0 ; until "$@" ; do exit=$? ; counter=$(($counter + 1)) ; if [ $counter -ge 3 ] ; then return $exit ; fi ; done ; return 0; } ; retry tox --parallel all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    rooms:
-      - secure: "UNSET"
+    secure: "Si9AZOyc3E/ZH1wSBhHJKbVoYsN4tBoou8fhl5M/SH76VD87FypCr3RN+2642S0zmpcje8tJ02kh4WN3nwyZmNehLm7qawhk0BuRujwuZTTcXxNOn+t+nz3g/bolUbi5pYEYOhgq9EkI5fx3GXtFtTG1XGrVQ0nPuny2kvNdltwsNcncWtiPi65ilvn0lfXYIKjVgnU8FWUdkXouAuao8Vb2hGQw9Ge6R7JjsOI98xWNq5Xf8OaEwKdu6x25CowlD3I5U2bS09EG5fgZcjLC/DRACZmwzKXMFShNQ7zDDeguR4RMDkXo8n5GfmKTtJX0PMkkf+juB7rnnhheSFrgZ2OYl8pMhy0AS0HUODIlJO629ZbrOGi790zPqz45lQn+SAO6WQpoogwHQOR32Uwb79f2ipziXMTEZABd3/jTGyRajo0rSSQTNRwlr3BprgytIrVZRJcQ2rfzJ8MzwKp/ZGQQbyFE4uEHyvHShPv2F5FEhA6wZqN//rPr0L8ngHpzsIP+GlP8VUf2rsU3LyUjW+3/im7FERewqq6/7gofYKuP3WBeUUXKUJ/kCUsEf4EZv38X861QEhPbm8K7Stq2lEKwdNmSAnPx+0IiH7vPlfLiv9egHpPH9WASbuFu9uXpbiWGmtVPWS5Msnv1/UtqQkQGwxQhah8udyGlcVCN1Vw="
+    on_success: change
+    template: "%{result}: %{repository_slug}@%{branch}, build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>)"
   email: false

@@ -39,7 +39,7 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 - name: Verify
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   tasks:
     - name: check if connection still works
@@ -54,7 +54,8 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for snort
-snort_version: 2.9.16
+
+snort_version: 2.9.16.1
 ```
 
 ## [Requirements](#requirements)
@@ -84,8 +85,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|el|7|
-|fedora|31|
+|el|8|
+|fedora|32|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
 
