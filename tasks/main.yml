@@ -11,6 +11,8 @@
 - name: install snort
   package:
     name: "{{ snort_package_url }}"
+    state: present
+    disable_gpg_check: yes
 
 - name: link libdnet.1
   file:
