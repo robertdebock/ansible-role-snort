@@ -42,7 +42,7 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for snort
 
-snort_version: 2.9.16.1
+snort_version: 2.0.7
 ```
 
 ## [Requirements](#requirements)
