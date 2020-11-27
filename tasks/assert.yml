@@ -4,4 +4,5 @@
   assert:
     that:
       - snort_version is defined
+      - snort_version is string
     quiet: yes
