@@ -2,9 +2,9 @@
 
 Install and configure snort on your system.
 
-|Travis|GitHub|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-snort.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-snort)|[![github](https://github.com/robertdebock/ansible-role-snort/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-snort/actions)|[![quality](https://img.shields.io/ansible/quality/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![downloads](https://img.shields.io/ansible/role/d/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-snort.svg)](https://github.com/robertdebock/ansible-role-snort/releases/)|
+|Travis|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-snort.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-snort)|[![github](https://github.com/robertdebock/ansible-role-snort/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-snort/actions)|[![gitlab](https://gitlab.com/robertdebock/ansible-role-snort/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-snort)|[![quality](https://img.shields.io/ansible/quality/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![downloads](https://img.shields.io/ansible/role/d/32397)](https://galaxy.ansible.com/robertdebock/snort)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-snort.svg)](https://github.com/robertdebock/ansible-role-snort/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -47,10 +47,11 @@ snort_version: 2.9.17
 
 ## [Requirements](#requirements)
 
-- Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
+- pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-snort/blob/master/requirements.txt).
 
 ## [Status of requirements](#status-of-requirements)
+
+The following roles are used to prepare a system. You may choose to prepare your system in another way, I have tested these roles as well.
 
 | Requirement | Travis | GitHub |
 |-------------|--------|--------|
