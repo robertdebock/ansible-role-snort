@@ -2,7 +2,7 @@
 # handlers file for snort
 
 - name: restart snort
-  service:
+  ansible.builtin.service:
     name: "{{ snort_service }}"
     state: restarted
   when:
