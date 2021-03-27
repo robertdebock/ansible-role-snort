@@ -17,8 +17,6 @@ _snort_package_url:
 snort_package_url: "{{ _snort_package_url[ansible_distribution] | default(_snort_package_url['default']) }}"
 
 snort_community_rules:
-  - url: "https://www.snort.org/downloads/community/community-rules.tar.gz"
-    file: community-rules/community.rules
   - url: "https://www.snort.org/downloads/community/opensource.gz"
     file: opensource/opensource.rules
   - url: "https://www.snort.org/downloads/community/snort3-community-rules.tar.gz"
