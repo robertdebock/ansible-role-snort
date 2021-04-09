@@ -1,5 +1,7 @@
 # [snort](#snort)
 
+THIS ROLE HAS BEEN ARCHIVED AND IS NOT MAINTAINED.
+
 Install and configure snort on your system.
 
 |GitHub|GitLab|Quality|Downloads|Version|
